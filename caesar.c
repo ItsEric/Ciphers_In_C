@@ -18,6 +18,9 @@ int encrypt( int cap, int charToEncrypt, int key );
 
 int main(int argc, char*argv[])
 {
+    int i;
+    char*toEncrypt = "ENTER YOUR STRING HERE !!!" ; // I don't know how to use pointers and so scanf yet. This line will be edited later
+    char cryptedChar ;
 
     if (argc != 2)
     { 
@@ -26,19 +29,14 @@ int main(int argc, char*argv[])
     }
     if (atoi(argv[1]) <= 0)
     return 0;
-    
-
-    char cryptedChar ;
-
-    char*toEncrypt = "ENTER YOUR STRING HERE !!!" ; // I don't know how to use pointers and so scanf yet. This line will be edited later
 
     if (toEncrypt == NULL)
     return 2;
     
-    else
+    if (toEncrypt =! NULL)
     {
     
-       for ( int i = 0, n = strlen(toEncrypt); i < n ; i++) // n takes every value of the string
+       for ( i = 0, n = strlen(toEncrypt); i < n ; i++) // n takes every value of the string
        {
             if ( toEncrypt[i] >= 'A' && toEncrypt[i] <= 'Z' )
             {
