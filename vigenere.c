@@ -61,21 +61,19 @@ int main(int argc, char*argv[])
             {
             // tell the programm if it's a CAPITALIZED letter, a "normal" letter or an non alphabetical character that we don't want to encrypt 
             // I used toupper(code[i-nonAlpha]) so I won't have to check later is the code[i-nonAlpha] is bewteen 'a' and 'z' or 'A' and 'Z' in the ASCII table
-                if ( toEncrypt[i] >= 'A' && toEncrypt[i] <= 'Z' )
+                if ( isupper(toEncrypt[i]) )
                 {
-                    // tell the programm it's a CAPITALIZED letter, we send the letter and the key in UPPER CASE to encrypt()
-                    // I used toupper so I won't have to check later is the code[i-nonAlpha] is bewteen 'a' and 'z' or 'A' and 'Z'
                     cryptedChar = encrypt (1, toEncrypt[i], toupper(code[(i-nonAlpha) % strlen(code)])) ; 
                     printf("%c", cryptedChar);
                 }
-                else if ( toEncrypt[i] >= 'a' && toEncrypt[i] <= 'z' )
+                else if ( islower(toEncrypt[i]) )
                 {
                     cryptedChar = encrypt (0, toEncrypt[i], toupper(code[(i-nonAlpha) % strlen(code)])) ; 
                     printf("%c", cryptedChar);
                 }
                 else
                 {
-                    // One do not touch non alphabetical char
+                    // One do not touch non alphabetical chars
                     printf("%c", toEncrypt[i]);
                     // So the counter for the code wrapping won't increment when it is a non alphabetical char see lines 64 andd 69
                     nonAlpha++; 

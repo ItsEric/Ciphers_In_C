@@ -13,12 +13,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 int encrypt( int cap, int charToEncrypt, int key );
 
 int main(int argc, char*argv[])
 {
     int i;
+    int n;
     char*toEncrypt = "ENTER YOUR STRING HERE !!!" ; // I don't know how to use pointers and so scanf yet. This line will be edited later
     char cryptedChar ;
 
@@ -28,29 +30,29 @@ int main(int argc, char*argv[])
         return 1; 
     }
     if (atoi(argv[1]) <= 0)
-    return 0;
+        return 0;
 
     if (toEncrypt == NULL)
-    return 2;
+        return 2;
     
-    if (toEncrypt =! NULL)
+    else // (toEncrypt =! NULL)
     {
     
        for ( i = 0, n = strlen(toEncrypt); i < n ; i++) // n takes every value of the string
        {
-            if ( toEncrypt[i] >= 'A' && toEncrypt[i] <= 'Z' )
+            if ( isupper(toEncrypt[i]) )
             {
                 cryptedChar = encrypt (1, toEncrypt[i], atoi(argv[1])) ; // tell the programm it's a CAPITALIZED letter, we send the letter and the key to encrypt()
                 printf("%c", cryptedChar);
             }
-            else if ( toEncrypt[i] >= 'a' && toEncrypt[i] <= 'z' )
+            else if ( islower(toEncrypt[i]) )
             {
                 cryptedChar = encrypt (0, toEncrypt[i], atoi(argv[1])) ; 
                 printf("%c", cryptedChar);
             }
             else
             {
-                printf("%c", toEncrypt[i]); // One do not touch non alphabetical char
+                printf("%c", toEncrypt[i]); // One do not touch non alphabetical chars
             }
         }
         printf("\n");
@@ -60,14 +62,9 @@ int main(int argc, char*argv[])
 
 int encrypt( int cap, int charToEncrypt, int key )
 {
-    char newChar = 0 ;
-    if (cap == 1) // CAPITALIZED letter
-    {
-        newChar = ((charToEncrypt - 'A' + key)%26) + 'A' ;
-    }
-        else if (cap == 0) //  non capitalized letter
-    {
-        newChar = ((charToEncrypt - 'a' + key)%26) + 'a' ;
-    }
+    char newChar;
+    char genre = (cap = 1) ? 'A' : 'a';
+
+    newChar = ((charToEncrypt - genre + key)%26) + genre ;
     return newChar;
 }
