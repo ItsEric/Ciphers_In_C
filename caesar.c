@@ -2,11 +2,11 @@
 *           Published under WTFPL license               *
 *            https://github.com/ItsEric                 *
 *                                                       *
-* This programm will encode the string "toEncrypt" with *
+* This program will encode the string "toEncrypt" with  *
 * the key (an int) given in command line parameter. To  *
 *   execute it comile it then type ./caesar.c [key].    *
-*The programm is a C implementation of the Caesar cipher*
-*             more info about the cipher:               *   
+*The program is a C implementation of the Caesar cipher.*
+*             More info about the cipher:               *   
 *     http://en.wikipedia.org/wiki/Caesar_cipher        */
 
 
@@ -63,7 +63,7 @@ int main(int argc, char*argv[])
 int encrypt( int cap, int charToEncrypt, int key )
 {
     char newChar;
-    char genre = (cap = 1) ? 'A' : 'a';
+    char genre == ( cap ) ? 'A' : 'a';
 
     newChar = ((charToEncrypt - genre + key)%26) + genre ;
     return newChar;

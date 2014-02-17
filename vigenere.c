@@ -1,15 +1,14 @@
-
 /*********************************************************
 *          Code witten by Eric/Maxow234/ItsEric         *
 *              Published under WTFPL license             *
 *                https://github.com/ItsEric              *
 *                                                        *
-* This programm will encode the string "toEncrypt" using *
+* This program will encode the string "toEncrypt" using  *
 *       a keyword given in command line parameter.       *
 *                                                        *
 * To execute it comile it then type ./vigenere.c [code]. *
 *                                                        *
-*   This programm is a C implementation of the Vigenere  *
+*   This program is a C implementation of the Vigenere   *
 *                                                 cipher.*
 *            More info about this cipher:                *   
 *   http://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher    *
@@ -19,7 +18,6 @@
 * optimized in a lot of ways. However it should compile  *
 *                     and run properly.                  * 
 **********************************************************/
-
 
 #include <stdio.h>
 #include <string.h>
